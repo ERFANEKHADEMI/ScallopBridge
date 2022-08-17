@@ -4,7 +4,7 @@
 package ethereum
 
 import (
-	"github.com/ChainSafe/chainbridge-utils/msg"
+	"github.com/Satosh-J/scallopbridge-utils/msg"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 )
 

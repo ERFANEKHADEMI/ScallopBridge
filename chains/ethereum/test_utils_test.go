@@ -9,11 +9,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ChainSafe/ChainBridge/bindings/Bridge"
-	connection "github.com/ChainSafe/ChainBridge/connections/ethereum"
-	utils "github.com/ChainSafe/ChainBridge/shared/ethereum"
-	"github.com/ChainSafe/chainbridge-utils/keystore"
-	"github.com/ChainSafe/chainbridge-utils/msg"
+	"github.com/Satosh-J/ScallopBridge/bindings/Bridge"
+	connection "github.com/Satosh-J/ScallopBridge/connections/ethereum"
+	utils "github.com/Satosh-J/ScallopBridge/shared/ethereum"
+	"github.com/Satosh-J/scallopbridge-utils/keystore"
+	"github.com/Satosh-J/scallopbridge-utils/msg"
 	"github.com/ChainSafe/log15"
 	"github.com/ethereum/go-ethereum/common"
 )

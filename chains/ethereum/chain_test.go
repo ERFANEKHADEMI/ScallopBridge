@@ -8,11 +8,12 @@ import (
 	"testing"
 	"time"
 
-	ethtest "github.com/ChainSafe/ChainBridge/shared/ethereum/testing"
-	"github.com/ChainSafe/chainbridge-utils/core"
-	"github.com/ChainSafe/chainbridge-utils/keystore"
-	"github.com/ChainSafe/chainbridge-utils/msg"
+	ethtest "github.com/Satosh-J/ScallopBridge/shared/ethereum/testing"
+	"github.com/Satosh-J/scallopbridge-utils/core"
+	"github.com/Satosh-J/scallopbridge-utils/keystore"
+	"github.com/Satosh-J/scallopbridge-utils/msg"
 	"github.com/ethereum/go-ethereum/common"
+	
 	ethcrypto "github.com/ethereum/go-ethereum/crypto"
 )
 

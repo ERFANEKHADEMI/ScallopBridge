@@ -6,9 +6,9 @@ package utils
 import (
 	"math/big"
 
-	"github.com/ChainSafe/ChainBridge/bindings/ERC20Handler"
-	ERC20 "github.com/ChainSafe/ChainBridge/bindings/ERC20PresetMinterPauser"
-	"github.com/ChainSafe/chainbridge-utils/msg"
+	"github.com/Satosh-J/ScallopBridge/bindings/ERC20Handler"
+	ERC20 "github.com/Satosh-J/ScallopBridge/bindings/ERC20PresetMinterPauser"
+	"github.com/Satosh-J/scallopbridge-utils/msg"
 	"github.com/ethereum/go-ethereum/common"
 )
 

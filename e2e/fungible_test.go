@@ -8,11 +8,11 @@ import (
 	"math/big"
 	"testing"
 
-	eth "github.com/ChainSafe/ChainBridge/e2e/ethereum"
-	sub "github.com/ChainSafe/ChainBridge/e2e/substrate"
-	utils "github.com/ChainSafe/ChainBridge/shared/ethereum"
-	ethtest "github.com/ChainSafe/ChainBridge/shared/ethereum/testing"
-	subtest "github.com/ChainSafe/ChainBridge/shared/substrate/testing"
+	eth "github.com/Satosh-J/ScallopBridge/e2e/ethereum"
+	sub "github.com/Satosh-J/ScallopBridge/e2e/substrate"
+	utils "github.com/Satosh-J/ScallopBridge/shared/ethereum"
+	ethtest "github.com/Satosh-J/ScallopBridge/shared/ethereum/testing"
+	subtest "github.com/Satosh-J/ScallopBridge/shared/substrate/testing"
 	log "github.com/ChainSafe/log15"
 	"github.com/centrifuge/go-substrate-rpc-client/types"
 )

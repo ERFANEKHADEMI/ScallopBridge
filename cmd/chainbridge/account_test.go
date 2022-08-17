@@ -15,8 +15,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ChainSafe/chainbridge-utils/crypto"
-	"github.com/ChainSafe/chainbridge-utils/keystore"
+	"github.com/Satosh-J/scallopbridge-utils/crypto"
+	"github.com/Satosh-J/scallopbridge-utils/keystore"
 	"github.com/stretchr/testify/require"
 	"github.com/urfave/cli/v2"
 )

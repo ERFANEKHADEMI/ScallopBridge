@@ -4,7 +4,7 @@
 package utils
 
 import (
-	"github.com/ChainSafe/ChainBridge/bindings/CentrifugeAsset"
+	"github.com/Satosh-J/ScallopBridge/bindings/CentrifugeAsset"
 	"github.com/ethereum/go-ethereum/common"
 )
 

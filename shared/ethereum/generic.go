@@ -8,8 +8,8 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/ChainSafe/ChainBridge/bindings/GenericHandler"
-	"github.com/ChainSafe/chainbridge-utils/msg"
+	"github.com/Satosh-J/ScallopBridge/bindings/GenericHandler"
+	"github.com/Satosh-J/scallopbridge-utils/msg"
 	"github.com/ethereum/go-ethereum/common"
 )
 

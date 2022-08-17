@@ -5,10 +5,10 @@ package ethereum
 
 import (
 	"fmt"
-	"github.com/ChainSafe/ChainBridge/bindings/Bridge"
-	"github.com/ChainSafe/chainbridge-utils/core"
-	metrics "github.com/ChainSafe/chainbridge-utils/metrics/types"
-	"github.com/ChainSafe/chainbridge-utils/msg"
+	"github.com/Satosh-J/ScallopBridge/bindings/Bridge"
+	"github.com/Satosh-J/scallopbridge-utils/core"
+	metrics "github.com/Satosh-J/scallopbridge-utils/metrics/types"
+	"github.com/Satosh-J/scallopbridge-utils/msg"
 	"github.com/ChainSafe/log15"
 )
 

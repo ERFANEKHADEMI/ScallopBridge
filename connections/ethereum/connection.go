@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ChainSafe/ChainBridge/connections/ethereum/egs"
-	"github.com/ChainSafe/chainbridge-utils/crypto/secp256k1"
+	"github.com/Satosh-J/ScallopBridge/connections/ethereum/egs"
+	"github.com/Satosh-J/scallopbridge-utils/crypto/secp256k1"
 	"github.com/ChainSafe/log15"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	ethcommon "github.com/ethereum/go-ethereum/common"

@@ -6,8 +6,8 @@ package ethtest
 import (
 	"testing"
 
-	utils "github.com/ChainSafe/ChainBridge/shared/ethereum"
-	"github.com/ChainSafe/chainbridge-utils/msg"
+	utils "github.com/Satosh-J/ScallopBridge/shared/ethereum"
+	"github.com/Satosh-J/scallopbridge-utils/msg"
 	"github.com/ethereum/go-ethereum/common"
 )
 

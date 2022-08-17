@@ -7,9 +7,9 @@ import (
 	"os"
 	"testing"
 
-	utils "github.com/ChainSafe/ChainBridge/shared/substrate"
-	"github.com/ChainSafe/chainbridge-utils/keystore"
-	"github.com/ChainSafe/chainbridge-utils/msg"
+	utils "github.com/Satosh-J/ScallopBridge/shared/substrate"
+	"github.com/Satosh-J/scallopbridge-utils/keystore"
+	"github.com/Satosh-J/scallopbridge-utils/msg"
 	"github.com/ChainSafe/log15"
 	"github.com/centrifuge/go-substrate-rpc-client/types"
 	"github.com/ethereum/go-ethereum/common/hexutil"

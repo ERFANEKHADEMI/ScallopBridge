@@ -8,8 +8,8 @@ import (
 	"reflect"
 	"testing"
 
-	utils "github.com/ChainSafe/ChainBridge/shared/ethereum"
-	"github.com/ChainSafe/chainbridge-utils/core"
+	utils "github.com/Satosh-J/ScallopBridge/shared/ethereum"
+	"github.com/Satosh-J/scallopbridge-utils/core"
 	"github.com/ethereum/go-ethereum/common"
 )
 
