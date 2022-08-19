@@ -14,6 +14,7 @@ import (
 	"github.com/Satosh-J/ScallopBridge/bindings/ERC20Handler"
 	"github.com/Satosh-J/ScallopBridge/bindings/ERC721Handler"
 	"github.com/Satosh-J/ScallopBridge/bindings/GenericHandler"
+	"github.com/Satosh-J/ScallopBridge/bindings/ERC20"
 	"github.com/Satosh-J/ScallopBridge/chains"
 	utils "github.com/Satosh-J/ScallopBridge/shared/ethereum"
 	"github.com/Satosh-J/scallopbridge-utils/blockstore"
@@ -169,6 +170,10 @@ func (l *listener) getDepositEventsForBlock(latestBlock *big.Int) error {
 
 	// read through the log events and handle their deposit event if handler is recognized
 	for _, log := range logs {
+		// get transaction hash
+		txHash := log.TxHash.Hex()
+		l.log.Debug("Logging message", "transactionHash", txHash)
+
 		var m msg.Message
 		destId := msg.ChainId(log.Topics[1].Big().Uint64())
 		rId := msg.ResourceIdFromSlice(log.Topics[2].Bytes())
@@ -194,7 +199,34 @@ func (l *listener) getDepositEventsForBlock(latestBlock *big.Int) error {
 			return err
 		}
 
-		err = l.router.Send(m)
+		p := m.Payload
+
+		tokenAddress := ethcommon.BytesToAddress(p[0].([]byte))
+
+		tokenContract, err := ERC20.NewERC20(tokenAddress, l.conn.Client())
+		if err != nil {
+			l.log.Error("New ERC20 Contract error", "err", err)
+			return err
+		}
+	
+		symbol, err := tokenContract.Symbol(l.conn.CallOpts())
+		if err != nil {
+			l.log.Error("Get ERC20 symbol error", "err", err)
+			return err
+		}
+
+		p = append(p, log.TxHash.Bytes(), addr.Bytes(), []byte(symbol))
+
+		rm := msg.Message{
+			Source:       m.Source,
+			Destination:  m.Destination,
+			Type:         m.Type,
+			DepositNonce: m.DepositNonce,
+			ResourceId:   m.ResourceId,
+			Payload: p,
+		}
+
+		err = l.router.Send(rm)
 		if err != nil {
 			l.log.Error("subscription error: failed to route message", "err", err)
 		}

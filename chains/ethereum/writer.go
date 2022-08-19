@@ -4,7 +4,10 @@
 package ethereum
 
 import (
-	"fmt"
+	"bytes"
+    "encoding/json"
+	"encoding/hex"
+	"net/http"
 	"github.com/Satosh-J/ScallopBridge/bindings/Bridge"
 	"github.com/Satosh-J/scallopbridge-utils/core"
 	metrics "github.com/Satosh-J/scallopbridge-utils/metrics/types"
@@ -56,9 +59,47 @@ func (w *writer) setContract(bridge *Bridge.Bridge) {
 func (w *writer) ResolveMessage(m msg.Message) bool {
 	w.log.Info("Attempting to resolve message", "type", m.Type, "src", m.Source, "dst", m.Destination, "nonce", m.DepositNonce, "rId", m.ResourceId.Hex())
 
-	recipient := m.Payload[1].([]byte)
+	w.log.Debug("Logging message", "tokenAddress", hex.EncodeToString(m.Payload[0].([]byte)))
+	w.log.Debug("Logging message", "amount", hex.EncodeToString(m.Payload[1].([]byte)))
+	w.log.Debug("Logging message", "recepient", hex.EncodeToString(m.Payload[2].([]byte)))
+	w.log.Debug("Logging message", "txHash", hex.EncodeToString(m.Payload[3].([]byte)))
+	w.log.Debug("Logging message", "handlerAddress", hex.EncodeToString(m.Payload[4].([]byte)))
+	w.log.Debug("Logging message", "tokenSymbol", string(m.Payload[5].([]byte)))
 
-	w.log.Info("Logging message", "recipient", fmt.Sprintf("%x", recipient))
+	// only check transactions from Ethereum
+	if (m.Source == msg.ChainId(1)) {
+		values := map[string]string{
+			"network": "Ethereum",
+			"symbol": string(m.Payload[5].([]byte)),
+			"user": "0x" + hex.EncodeToString(m.Payload[2].([]byte)),
+			"tx": "0x" + hex.EncodeToString(m.Payload[3].([]byte)),
+			"handler": "0x" + hex.EncodeToString(m.Payload[4].([]byte)),
+		}
+		json_data, err := json.Marshal(values)
+		if err != nil {
+			w.log.Error("JSON error", "err", err)
+			return false
+		}
+	
+		resp, err := http.Post("https://scallopbridge-backend.herokuapp.com/kyt-status", "application/json",
+			bytes.NewBuffer(json_data))
+	
+		if err != nil {
+			w.log.Error("Response error", "err", err)
+			return false
+		}
+	
+		var res map[string]interface{}
+	
+		json.NewDecoder(resp.Body).Decode(&res)
+	
+		w.log.Debug("Logging message", "response", res["status"])
+
+		if res["status"] != true {
+			w.log.Error("KYT chainalysis alert", "status", res["status"])
+			return false
+		}
+	}
 
 	switch m.Type {
 	case msg.FungibleTransfer:

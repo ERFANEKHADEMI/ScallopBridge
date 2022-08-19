@@ -9,6 +9,7 @@ import (
 
 	events "github.com/ChainSafe/chainbridge-substrate-events"
 	"github.com/Satosh-J/scallopbridge-utils/msg"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/ChainSafe/log15"
 )
 
@@ -41,6 +42,7 @@ func fungibleTransferHandler(evtI interface{}, log log15.Logger) (msg.Message, e
 		0, // Unset
 		msg.ChainId(evt.Destination),
 		msg.Nonce(evt.DepositNonce),
+		common.Address{},
 		evt.Amount.Int,
 		resourceId,
 		evt.Recipient,
