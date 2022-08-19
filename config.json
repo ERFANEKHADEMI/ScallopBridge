@@ -1,0 +1,33 @@
+{
+  "chains": [
+    {
+      "name": "Scallop",
+      "type": "ethereum",
+      "id": "0",
+      "endpoint": "http://52.56.60.20:8545",
+      "from": "0xD591Eba3819B4EDE4555d92C7cd0D2b97e33c0F6",
+      "opts": {
+        "bridge": "0xe0cD0c31093D70F5cf1B901920C07239Bfe21E32",
+        "erc20Handler": "0x0ee9Ba2B32F414Be755621AD4a1615692D95E5eA",
+        "genericHandler": "0x0ee9Ba2B32F414Be755621AD4a1615692D95E5eA",
+        "gasLimit": "1000000",
+        "maxGasPrice": "10000000000",
+        "http": "true"
+      }
+    },
+    {
+      "name": "Mumbai",
+      "type": "ethereum",
+      "id": "1",
+      "endpoint": "wss://polygon-mumbai.g.alchemy.com/v2/88mxm5gXNY6A1B2TFDQnQVfQ75fHjtT_",
+      "from": "0xD591Eba3819B4EDE4555d92C7cd0D2b97e33c0F6",
+      "opts": {
+        "bridge": "0xd056b814C42D329C87df350491aDc02682e11d6D",
+        "erc20Handler": "0xFAeD61Ab5267442E60b31FFE9501082BA7de793A",
+        "genericHandler": "0xFAeD61Ab5267442E60b31FFE9501082BA7de793A",
+        "gasLimit": "8000000",
+        "maxGasPrice": "30000000000"
+      }
+    }
+  ]
+}
