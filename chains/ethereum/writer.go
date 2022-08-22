@@ -59,9 +59,9 @@ func (w *writer) setContract(bridge *Bridge.Bridge) {
 func (w *writer) ResolveMessage(m msg.Message) bool {
 	w.log.Info("Attempting to resolve message", "type", m.Type, "src", m.Source, "dst", m.Destination, "nonce", m.DepositNonce, "rId", m.ResourceId.Hex())
 
-	w.log.Debug("Logging message", "tokenAddress", hex.EncodeToString(m.Payload[0].([]byte)))
-	w.log.Debug("Logging message", "amount", hex.EncodeToString(m.Payload[1].([]byte)))
-	w.log.Debug("Logging message", "recepient", hex.EncodeToString(m.Payload[2].([]byte)))
+	w.log.Debug("Logging message", "amount", hex.EncodeToString(m.Payload[0].([]byte)))
+	w.log.Debug("Logging message", "recepient", hex.EncodeToString(m.Payload[1].([]byte)))
+	w.log.Debug("Logging message", "tokenAddress", hex.EncodeToString(m.Payload[2].([]byte)))
 	w.log.Debug("Logging message", "txHash", hex.EncodeToString(m.Payload[3].([]byte)))
 	w.log.Debug("Logging message", "handlerAddress", hex.EncodeToString(m.Payload[4].([]byte)))
 	w.log.Debug("Logging message", "tokenSymbol", string(m.Payload[5].([]byte)))
@@ -71,7 +71,7 @@ func (w *writer) ResolveMessage(m msg.Message) bool {
 		values := map[string]string{
 			"network": "Ethereum",
 			"symbol": string(m.Payload[5].([]byte)),
-			"user": "0x" + hex.EncodeToString(m.Payload[2].([]byte)),
+			"user": "0x" + hex.EncodeToString(m.Payload[1].([]byte)),
 			"tx": "0x" + hex.EncodeToString(m.Payload[3].([]byte)),
 			"handler": "0x" + hex.EncodeToString(m.Payload[4].([]byte)),
 		}

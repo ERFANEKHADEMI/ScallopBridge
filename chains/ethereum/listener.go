@@ -201,7 +201,7 @@ func (l *listener) getDepositEventsForBlock(latestBlock *big.Int) error {
 
 		p := m.Payload
 
-		tokenAddress := ethcommon.BytesToAddress(p[0].([]byte))
+		tokenAddress := ethcommon.BytesToAddress(p[2].([]byte))
 
 		tokenContract, err := ERC20.NewERC20(tokenAddress, l.conn.Client())
 		if err != nil {
